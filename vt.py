@@ -1,10 +1,3 @@
-#!/usr/bin/python
-# Virus Total API Integration Script
-# Built on VT Test Script from: Adam Meyers ~ CrowdStrike
-# Rewirtten / Modified / Personalized: Chris Clark ~ GD Fidelis CyberSecurity
-# If things are broken let me know chris@xenosec.org
-# No Licence or warranty expressed or implied, use however you wish! 
-
 import json, urllib, urllib2, argparse, hashlib, re, sys
 from pprint import pprint
 
@@ -36,7 +29,7 @@ class vtAPI():
           print "\n\tMalware Downloaded to File -- " + name
         else:
           print md5 + " -- Not Found for Download"
-      except Exception:
+      except:
         print md5 + " -- Not Found for Download"
 
     def downloadPcap(self,md5,name):
@@ -58,10 +51,9 @@ class vtAPI():
         url = self.base + "file/rescan"
         data = urllib.urlencode(param)
         result = urllib2.urlopen(url,data)
-        print "\n\tVirus Total Rescan Initiated for -- " + md5 + " (Requery in 10 Mins)"
+        print "\n\tVirus Total Rescan started for -- " + md5 + " (Requery in 10 Mins)"
 
 
-# Md5 Function
 
 def checkMD5(checkval):
   if re.match(r"([a-fA-F\d]{32})", checkval) == None:
