@@ -1,11 +1,4 @@
-#!/usr/bin/python
-# Virus Total API Integration Script
-# Built on VT Test Script from: Adam Meyers ~ CrowdStrike
-# Rewirtten / Modified / Personalized: Chris Clark ~ GD Fidelis CyberSecurity
-# If things are broken let me know chris@xenosec.org
-# No Licence or warranty expressed or implied, use however you wish! 
-
-import json, urllib, urllib2, argparse, hashlib, re, sys
+ import json, urllib, urllib2, argparse, hashlib, re, sys
 from pprint import pprint
 
 class vtAPI():
@@ -66,10 +59,10 @@ def parse(it, md5, verbose, jsondump):
     jsondumpfile = open("VTDL" + md5 + ".json", "w")
     pprint(it, jsondumpfile)
     jsondumpfile.close()
-    print "\n\tJSON Written to File -- " + "VTDL" + md5 + ".json"
+    print "\n\tJson Written to File -- " + "VTDL" + md5 + ".json"
 
   if verbose == True:
-    print '\n\tVerbose VirusTotal Information Output:\n'
+    print '\n\tVerbose Virus Total Information Output :\n'
     for x in it['scans']:
      print '\t', x,'\t' if len(x) < 7 else '','\t' if len(x) < 14 else '','\t',it['scans'][x]['detected'], '\t',it['scans'][x]['result']
 
